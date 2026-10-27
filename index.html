@@ -12,8 +12,16 @@
         <div class="company-header">
             <img class="company-logo" src="logo-transparent.png" alt="We R Here 4 U llc logo">
         </div>
-        
-        <nav class="main-nav">
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="main-nav" id="main-navigation">
             <a href="#home" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="#how-it-works">How It Works</a>
@@ -45,6 +53,14 @@
 
         <div class="dolly-container">
             <img class="delivery-image" src="moving-dolly.png" alt="Dolly carrying moving boxes">
+        </div>
+
+        <div class="mobile-quote-container">
+            <a href="tel:+13213430101" class="mobile-quote-button">
+                <i data-lucide="phone"></i>
+                Call for a Quote (321)343-0101
+            </a>
+
         </div>
 
         </div>
@@ -188,6 +204,13 @@
 
                     </div>
                 </section>
+
+                <div class="back-to-top-container">
+                    <a href="#home" class="back-to-top">
+                        <i data-lucide="arrow-up"></i>
+                        Back to Home
+                    </a>
+                </div>
                 <footer class="site-footer">
                     <p>Copyright © 2026 We R Here 4 U LLC. All rights reserved. </p>
                 </footer>
@@ -457,6 +480,11 @@
             max-width: 350px;
             box-sizing: border-box;
         }
+
+        .welcome-section h2::after {
+            width: 100%;
+            max-width: 100%;
+        }
     }
     .about-section {
         background-color: #303238;
@@ -667,12 +695,12 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            width: 350px;
+            width: 650px;
         }
 
         .delivery-gallery img {
             width: 100%;
-            height: 200px;
+            height: 260px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -745,9 +773,17 @@
                 line-height: 1.7;
             }
 
+            .about-photos {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+                align-items: center;
+            }
+
             .about-photos img {
-                width: 75%;
-                height: 160px;
+                width: 100%;
+                height: 200px;
+                max-width: 350px;
                 object-fit: cover;
             }
 
@@ -757,6 +793,7 @@
 
             .about-photos img:last-child {
                 align-self: center;
+                transform: none;
             }
             
         }
@@ -836,9 +873,189 @@
             text-align: center;
             margin-top: 25px;
         }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .main-header {
+                position: sticky;
+                top: 0;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-bottom: 0;
+                padding: 8px 15px;
+            }
+
+        .company-header {
+            flex-direction: row;
+            width: auto;
+            margin-right: auto;
+        }
+
+        .company-logo {
+            width: 75px;
+            margin-left: 0;
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: none;
+            position: static;
+            left: auto;
+            transform: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            order: 3;
+        }
+
+
+        .main-nav.open {
+            display: flex;
+        }
+
+        .main-nav a {
+            width: 100%;
+            padding: 14px 0;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .contact-section {
+            display: none;
+        }
+        }
+
+        .mobile-quote-container {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .dolly-container {
+                display: none;
+            }
+
+            .welcome-content {
+                position: relative;
+                padding-bottom: 30px;
+            }
+
+            .welcome-content::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 300px;
+                height: 260px;
+                background-image: url("moving-dolly.png");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0.15;
+                pointer-events: none;
+            }
+
+            .mobile-quote-container {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                position: relative;
+                z-index: 1;
+                margin-top: 70px;
+                margin-bottom: 50px;
+            }
+
+            .mobile-quote-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                background-color: #F8B931;
+                color: #303238;
+                padding: 16px 25px;
+                border-radius: 8px;
+                font-family: Arial, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .mobile-quote-button svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        .back-to-top-container {
+            display: flex;
+            justify-content: center;
+            background-color: #303238;
+            padding: 10px 0 25px;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #F8B931;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #F8B931;
+            border-radius: 8px;
+        }
+
+        .back-to-top:hover {
+            background-color: #F8B931;
+            color: #303238;
+        }
+
+        .back-to-top svg {
+            width: 18px;
+            height: 18px;
+        }
 </style>
 <script>
     lucide.createIcons();
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".main-nav");
+
+    menuButton.addEventListener("click", function() {
+        const isOpen = navigation.classList.toggle("open");
+
+        menuButton.setAttribute("aria-expanded", isOpen);
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    navigation.querySelectorAll("a").forEach(function(link) {
+        link.addEventListener("click", function() {
+            navigation.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+
 </script>
 </body>
 </html>
